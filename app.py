@@ -7,6 +7,17 @@ import matplotlib.pyplot as plt
 model = pickle.load(open('model.pkl', 'rb'))
 
 st.title("🗳️ Election Prediction App")
+menu = st.sidebar.selectbox("Menu", ["Home", "Prediction", "Analysis"])
+if menu == "Home":
+    st.write("Welcome to Election AI Dashboard")
+
+elif menu == "Analysis":
+    st.subheader("📊 Data Analysis")
+    party_counts = df['Party'].value_counts()
+    st.bar_chart(party_counts)
+
+elif menu == "Prediction":
+    # your prediction code here
 state = st.selectbox("Select State", ["Assam", "West Bengal"])
 model = pickle.load(open('model.pkl', 'rb'))
 le_party = pickle.load(open('party_encoder.pkl', 'rb'))
