@@ -9,14 +9,23 @@ st.title("🗳️ Election Prediction App")
 
 st.write("Select details:")
 
-# Example dropdown values (you can expand later)
 district = st.selectbox("Select District", ["District1", "District2", "District3"])
 type_val = st.selectbox("Select Type", ["GEN", "SC", "ST"])
 
 votes = st.number_input("Total Votes")
 poll = st.number_input("Poll %")
 
+# 🔥 Add this mapping (you can update later)
+party_map = {
+    0: "BJP",
+    1: "INC",
+    2: "Others",
+    3: "TMC"
+}
+
 if st.button("Predict"):
-    # TEMP: using dummy encoding (we'll improve later)
     prediction = model.predict([[0, 0, votes, poll]])
-    st.success(f"Predicted Party Code: {prediction[0]}")
+    
+    party_name = party_map.get(prediction[0], "Unknown")
+    
+    st.success(f"Predicted Winning Party: {party_name}")
