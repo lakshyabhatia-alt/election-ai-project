@@ -10,14 +10,18 @@ st.title("🗳️ Election Prediction App")
 menu = st.sidebar.selectbox("Menu", ["Home", "Prediction", "Analysis"])
 if menu == "Home":
     st.write("Welcome to Election AI Dashboard")
+    st.write("Use this app to analyze and predict election results.")
 
 elif menu == "Analysis":
     st.subheader("📊 Data Analysis")
+    
     party_counts = df['Party'].value_counts()
     st.bar_chart(party_counts)
 
 elif menu == "Prediction":
-    # your prediction code here
+    st.subheader("🤖 Prediction")
+    
+    # 👉 KEEP YOUR EXISTING prediction code here
 state = st.selectbox("Select State", ["Assam", "West Bengal"])
 model = pickle.load(open('model.pkl', 'rb'))
 le_party = pickle.load(open('party_encoder.pkl', 'rb'))
