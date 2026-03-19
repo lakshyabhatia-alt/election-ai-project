@@ -17,6 +17,16 @@ if state == "Assam":
 else:
     df = pd.read_csv('IndiaVotes_AC__West_Bengal_2021 (1).csv')
 st.write("Select details:")
+st.subheader("🗺️ Constituency Map")
+
+import pandas as pd
+
+map_data = pd.DataFrame({
+    'lat': [26.2, 26.5, 26.7],
+    'lon': [91.7, 92.0, 92.3]
+})
+
+st.map(map_data)
 st.subheader("📊 Party Distribution")
 
 party_counts = df['Party'].value_counts()
