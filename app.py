@@ -1,9 +1,11 @@
 import streamlit as st
 import pickle
 import numpy as np
-
+import pandas as pd
+import matplotlib.pyplot as plt
 # Load model and encoders
 model = pickle.load(open('model.pkl', 'rb'))
+df = pd.read_csv('IndiaVotes_AC__Assam_2021.csv')
 le_party = pickle.load(open('party_encoder.pkl', 'rb'))
 le_district = pickle.load(open('district_encoder.pkl', 'rb'))
 le_type = pickle.load(open('type_encoder.pkl', 'rb'))
@@ -11,6 +13,14 @@ le_type = pickle.load(open('type_encoder.pkl', 'rb'))
 st.title("🗳️ Election Prediction App")
 
 st.write("Select details:")
+st.subheader("📊 Party Distribution")
+
+party_counts = df['Party'].value_counts()
+
+fig, ax = plt.subplots()
+party_counts.plot(kind='bar', ax=ax)
+
+st.pyplot(fig)
 
 # REAL dropdown values
 district = st.selectbox("Select District", list(le_district.classes_))
