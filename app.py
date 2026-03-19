@@ -5,15 +5,18 @@ import numpy as np
 # Load model
 model = pickle.load(open('model.pkl', 'rb'))
 
-st.title("Election Prediction App")
+st.title("🗳️ Election Prediction App")
 
-st.write("Enter details below:")
+st.write("Select details:")
 
-district = st.number_input("District (encoded)")
-type_val = st.number_input("Type (encoded)")
+# Example dropdown values (you can expand later)
+district = st.selectbox("Select District", ["District1", "District2", "District3"])
+type_val = st.selectbox("Select Type", ["GEN", "SC", "ST"])
+
 votes = st.number_input("Total Votes")
 poll = st.number_input("Poll %")
 
 if st.button("Predict"):
-    prediction = model.predict([[district, type_val, votes, poll]])
+    # TEMP: using dummy encoding (we'll improve later)
+    prediction = model.predict([[0, 0, votes, poll]])
     st.success(f"Predicted Party Code: {prediction[0]}")
