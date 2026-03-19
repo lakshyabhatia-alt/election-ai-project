@@ -5,13 +5,17 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # Load model and encoders
 model = pickle.load(open('model.pkl', 'rb'))
-df = pd.read_csv('IndiaVotes_AC__Assam_2021 (1).csv')
+
+st.title("🗳️ Election Prediction App")
+state = st.selectbox("Select State", ["Assam", "West Bengal"])
+model = pickle.load(open('model.pkl', 'rb'))
 le_party = pickle.load(open('party_encoder.pkl', 'rb'))
 le_district = pickle.load(open('district_encoder.pkl', 'rb'))
 le_type = pickle.load(open('type_encoder.pkl', 'rb'))
-
-st.title("🗳️ Election Prediction App")
-
+if state == "Assam":
+    df = pd.read_csv('IndiaVotes_AC__Assam_2021.csv')
+else:
+    df = pd.read_csv('IndiaVotes_AC__West_Bengal_2021.csv')
 st.write("Select details:")
 st.subheader("📊 Party Distribution")
 
