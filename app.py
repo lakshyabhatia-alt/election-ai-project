@@ -51,6 +51,7 @@ elif menu == "Analysis":
 # ---------------- PREDICTION ----------------
 elif menu == "Prediction":
     st.subheader("🤖 Prediction")
+    st.info("⚠️ This prediction is based on historical data and is for analysis purposes only.")
 
     # MAP
     st.subheader("🗺️ Constituency Map")
