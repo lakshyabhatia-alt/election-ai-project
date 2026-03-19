@@ -19,14 +19,22 @@ else:
 st.write("Select details:")
 st.subheader("🗺️ Constituency Map")
 
-import pandas as pd
-
-map_data = pd.DataFrame({
-    'lat': [26.2, 26.5, 26.7],
-    'lon': [91.7, 92.0, 92.3]
-})
+if state == "Assam":
+    map_data = pd.DataFrame({
+        'lat': [26.2, 26.5, 26.7],
+        'lon': [91.7, 92.0, 92.3]
+    })
+else:
+    map_data = pd.DataFrame({
+        'lat': [22.5, 22.8, 23.0],
+        'lon': [88.3, 88.5, 88.7]
+    })
 
 st.map(map_data)
+
+import pandas as pd
+
+
 st.subheader("📊 Party Distribution")
 
 party_counts = df['Party'].value_counts()
