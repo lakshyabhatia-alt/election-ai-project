@@ -32,7 +32,7 @@ menu = st.sidebar.selectbox("Menu", ["Home", "Analysis", "Prediction"])
 
 if menu == "Home":
     st.write("Welcome to Election AI Dashboard")
-    st.write("Use this app to analyze and predict election results.")
+    st.write("Use this model to analyze and predict election results.")
 
 
 elif menu == "Analysis":
