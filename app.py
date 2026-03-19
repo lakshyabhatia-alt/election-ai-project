@@ -5,7 +5,7 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # Load model and encoders
 model = pickle.load(open('model.pkl', 'rb'))
-df = pd.read_csv('IndiaVotes_AC__Assam_2021.csv')
+df = pd.read_csv('IndiaVotes_AC__Assam_2021 (1).csv')
 le_party = pickle.load(open('party_encoder.pkl', 'rb'))
 le_district = pickle.load(open('district_encoder.pkl', 'rb'))
 le_type = pickle.load(open('type_encoder.pkl', 'rb'))
