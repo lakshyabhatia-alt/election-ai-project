@@ -13,9 +13,9 @@ le_party = pickle.load(open('party_encoder.pkl', 'rb'))
 le_district = pickle.load(open('district_encoder.pkl', 'rb'))
 le_type = pickle.load(open('type_encoder.pkl', 'rb'))
 if state == "Assam":
-    df = pd.read_csv('IndiaVotes_AC__Assam_2021.csv')
+    df = pd.read_csv('IndiaVotes_AC__Assam_2021 (1).csv')
 else:
-    df = pd.read_csv('IndiaVotes_AC__West_Bengal_2021.csv')
+    df = pd.read_csv('')
 st.write("Select details:")
 st.subheader("📊 Party Distribution")
 
