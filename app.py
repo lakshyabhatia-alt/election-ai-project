@@ -18,6 +18,12 @@ elif menu == "Analysis":
     party_counts = df['Party'].value_counts()
     st.bar_chart(party_counts)
 
+    st.subheader("📈 Poll % Distribution")
+    st.line_chart(df['Poll%'])
+
+    st.subheader("🏆 Top Constituencies by Votes")
+    top = df.sort_values(by='Total Votes', ascending=False).head(10)
+    st.bar_chart(top.set_index('AC Name')['Total Votes'])
 elif menu == "Prediction":
     st.subheader("🤖 Prediction")
     
