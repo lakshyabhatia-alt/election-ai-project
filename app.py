@@ -8,8 +8,8 @@ import matplotlib.pyplot as plt
 st.set_page_config(page_title="Election AI Dashboard", layout="wide")
 
 st.title("🗳️ Election AI Dashboard")
-st.markdown("### Analyze and Predict Election Outcomes")
-st.markdown("---")
+st.sidebar.markdown("## About")
+st.sidebar.write("AI-based election analysis project using ML and Streamlit")
 
 # ---------------- STATE SELECTION ----------------
 state = st.selectbox("Select State", ["Assam", "West Bengal"])
