@@ -17,18 +17,20 @@ if state == "Assam":
 else:
     df = pd.read_csv('IndiaVotes_AC__West_Bengal_2021 (1).csv')
 st.write("Select details:")
+
 st.subheader("🗺️ Constituency Map")
 
+import numpy as np
+
+# generate random coordinates around state
 if state == "Assam":
-    map_data = pd.DataFrame({
-        'lat': [26.2, 26.5, 26.7],
-        'lon': [91.7, 92.0, 92.3]
-    })
+    lat = 26 + np.random.rand(len(df)) * 2
+    lon = 91 + np.random.rand(len(df)) * 2
 else:
-    map_data = pd.DataFrame({
-        'lat': [22.5, 22.8, 23.0],
-        'lon': [88.3, 88.5, 88.7]
-    })
+    lat = 22 + np.random.rand(len(df)) * 2
+    lon = 88 + np.random.rand(len(df)) * 2
+
+map_data = pd.DataFrame({'lat': lat, 'lon': lon})
 
 st.map(map_data)
 
